@@ -137,3 +137,47 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Project-specific
+# Backend environment variables (IMPORTANT - contains MongoDB credentials)
+backend/.env
+backend/.env.local
+backend/.env.production
+
+# Frontend environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+backend/dist/
+frontend/dist/
+frontend/build/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Lock files (optional - uncomment if you want to ignore them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
