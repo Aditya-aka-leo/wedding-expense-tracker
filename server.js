@@ -1,6 +1,4 @@
 const express = require('express');
-const https = require('https');
-const fs = require('fs');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
@@ -13,11 +11,6 @@ connectDB();
 
 const app = express();
 
-// SSL certificate and key paths
-const sslOptions = {
-  key: fs.readFileSync('/home/ubuntu/ssl/server.key'),
-  cert: fs.readFileSync('/home/ubuntu/ssl/server.cert'),
-};
 // Middleware
 app.use(cors({
   origin: process.env.FRONTEND_URL ? 
@@ -56,7 +49,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 443;
-https.createServer(sslOptions, app).listen(PORT, '0.0.0.0', () => {
-  console.log(`HTTPS Server running on port ${PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
